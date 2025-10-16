@@ -11,7 +11,7 @@ const waitOn = require('wait-on');
 const treeKill = require('tree-kill');
 
 const ROOT_DIR = path.resolve(__dirname, '..');
-const E2E_DIR = __dirname;
+const E2E_DIR = path.resolve(__dirname, '.');;
 const SERVER_URL = 'http://localhost:4200/';
 
 function spawnShell(command, cwd) {
