@@ -29,12 +29,16 @@ npm run install:browsers
 copy .env.example .env
 ```
 
-3. Start app/backend manually (or enable managed services in `.env`)
-
-4. Run smoke tests:
+3. Run smoke tests (frontend + demo backend are auto-started if needed):
 
 ```bash
 npm run test:smoke
+```
+
+If you already started services manually and want to reuse them:
+
+```bash
+npm run test:smoke:manual
 ```
 
 ## Managed Services (Optional)

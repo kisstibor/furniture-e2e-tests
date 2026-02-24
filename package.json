@@ -4,8 +4,13 @@
   "private": true,
   "description": "BDD end-to-end tests for DIY Furniture (frontend + backend + DB assertions)",
   "scripts": {
+    "pretest": "node scripts/verify-local-install.js",
+    "pretest:smoke": "node scripts/verify-local-install.js",
+    "pretest:headed": "node scripts/verify-local-install.js",
     "test": "cucumber-js -p default",
-    "test:smoke": "cucumber-js -p smoke",
+    "test:smoke": "cross-env E2E_START_FRONTEND=true E2E_START_BACKEND=true cucumber-js -p smoke",
+    "test:smoke:manual": "cucumber-js -p smoke",
+    "test:db": "cucumber-js -p default --tags \"@db and not @manual\"",
     "test:headed": "cross-env E2E_HEADLESS=false cucumber-js -p default",
     "check": "tsc -p tsconfig.json --noEmit",
     "install:browsers": "playwright install chromium"
