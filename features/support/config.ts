@@ -80,13 +80,13 @@ export function resolveConfig(): E2EConfig {
     frontend: {
       enabled: asBool(process.env.E2E_START_FRONTEND, false),
       cmd: process.env.E2E_FRONTEND_CMD ?? 'npm run start',
-      cwd: path.resolve(projectRoot, process.env.E2E_FRONTEND_CWD ?? '..'),
+      cwd: path.resolve(projectRoot, process.env.E2E_FRONTEND_CWD ?? '../diyfurniture'),
       waitOnUrl: process.env.E2E_FRONTEND_WAIT_ON ?? `${baseUrl}/`,
     },
     backend: {
       enabled: asBool(process.env.E2E_START_BACKEND, false),
       cmd: process.env.E2E_BACKEND_CMD ?? 'npm run start:server',
-      cwd: path.resolve(projectRoot, process.env.E2E_BACKEND_CWD ?? '..'),
+      cwd: path.resolve(projectRoot, process.env.E2E_BACKEND_CWD ?? '../diyfurniture'),
       waitOnUrl: process.env.E2E_BACKEND_WAIT_ON ?? `${backendApiBaseUrl}/health`,
     },
     db: {
