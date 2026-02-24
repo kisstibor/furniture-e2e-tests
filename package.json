@@ -1,19 +1,30 @@
 {
   "name": "furniture-e2e-tests",
-  "private": true,
   "version": "0.1.0",
-  "description": "Selenium-based end-to-end tests for diyfurniture Draw2d",
+  "private": true,
+  "description": "BDD end-to-end tests for DIY Furniture (frontend + backend + DB assertions)",
   "scripts": {
-    "start:app": "cd .. && npm run start",
-    "test:mocha": "mocha \"tests/**/*.spec.js\" --timeout 90000",
-    "test": "node run-e2e.js"
+    "test": "cucumber-js -p default",
+    "test:smoke": "cucumber-js -p smoke",
+    "test:headed": "cross-env E2E_HEADLESS=false cucumber-js -p default",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "install:browsers": "playwright install chromium"
   },
   "devDependencies": {
-    "chai": "^4.5.0",
-    "mocha": "^10.7.3",
-    "selenium-webdriver": "^4.26.0",
-    "start-server-and-test": "^2.0.8",
-    "wait-on": "^7.0.1",
-    "tree-kill": "^1.2.2"
+    "@cucumber/cucumber": "^12.2.0",
+    "@types/node": "^22.13.10",
+    "cross-env": "^7.0.3",
+    "playwright": "^1.51.1",
+    "tree-kill": "^1.2.2",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.8.3",
+    "wait-on": "^9.0.1",
+    "yaml": "^2.7.1"
+  },
+  "optionalDependencies": {
+    "mssql": "^11.0.1",
+    "mysql2": "^3.14.0",
+    "pg": "^8.14.1"
   }
 }
