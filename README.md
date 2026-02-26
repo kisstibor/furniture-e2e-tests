@@ -72,9 +72,31 @@ Example steps:
 
 Failed scenarios automatically save screenshots to `artifacts/`.
 
+## YAML Fixture-Based E2E Tests
+
+You can load design fixtures from files under `fixtures/` and test the import flow through the frontend.
+
+Example scenario step:
+
+- `When I import the furniture design YAML fixture "designs/sample-kitchen.design.yaml"`
+
+Reusable UI steps added:
+
+- `When I upload the fixture file "<path>" into the selector "<css>"`
+- `When I import the furniture design YAML fixture "<path>"`
+- `Then I should see a project item named "<name>"`
+- `Then I should see a module item named "<name>"`
+
+Run YAML fixture tests:
+
+```bash
+npm run test:yaml
+```
+
 ## Recommended Test Strategy
 
 - `@smoke`: fast UI + API happy paths
+- `@yaml`: fixture-driven UI imports and regression checks using design YAML files
 - `@e2e`: end-to-end workflows (project creation, decomposition, cutting plan)
 - `@db`: persistence verification scenarios
 - `@manual`: examples/templates excluded from default runs

@@ -1,0 +1,77 @@
+schema_version: 1
+kind: furniture_project_design
+meta:
+  name: E2E YAML Fixture Kitchen
+  units: mm
+project:
+  modules:
+    - label: Pantry Tower
+      placement:
+        x: 0
+        y: 0
+        z: 0
+        rotation_y_deg: 0
+      size:
+        width: 1000
+        height: 2200
+        depth: 560
+      source_snapshot:
+        module_snapshot:
+          bodies:
+            - x: 0
+              y: 0
+              width: 1000
+              height: 2200
+              deepth: 560
+              thickness: 18
+              split: null
+              interiorLayout: null
+              details: null
+              design: null
+    - label: Base Cabinet 1
+      placement:
+        x: 1050
+        y: 1380
+        z: 0
+        rotation_y_deg: 0
+      size:
+        width: 1200
+        height: 820
+        depth: 560
+      source_snapshot:
+        module_snapshot:
+          bodies:
+            - x: 0
+              y: 0
+              width: 1200
+              height: 820
+              deepth: 560
+              thickness: 18
+              split: null
+              interiorLayout: null
+              details: null
+              design: null
+    - label: Base Cabinet 2
+      placement:
+        x: 2300
+        y: 1380
+        z: 0
+        rotation_y_deg: 0
+      size:
+        width: 1200
+        height: 820
+        depth: 560
+      source_snapshot:
+        module_snapshot:
+          bodies:
+            - x: 0
+              y: 0
+              width: 1200
+              height: 820
+              deepth: 560
+              thickness: 18
+              split: null
+              interiorLayout: null
+              details: null
+              design: null
+
