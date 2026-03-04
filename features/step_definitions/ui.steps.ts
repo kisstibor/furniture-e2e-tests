@@ -1,4 +1,4 @@
-import assert from 'assert';
+﻿import assert from 'assert';
 import { Given, Then, When } from '@cucumber/cucumber';
 import { resolveFixturePath } from '../support/fixtures';
 import { runtimeHarness } from '../support/runtime';
@@ -75,4 +75,17 @@ Then('the frontend URL should contain {string}', async function (this: E2EWorld,
   assert(this.page, 'Playwright page is not initialized');
   await this.page.waitForURL((url) => url.toString().includes(fragment));
   assert.ok(this.page.url().includes(fragment), `Expected URL to contain "${fragment}", got ${this.page.url()}`);
+});
+
+When('I reload the current page', async function (this: E2EWorld) {
+  assert(this.page, 'Playwright page is not initialized');
+  await this.page.reload({ waitUntil: 'domcontentloaded' });
+});
+
+Then('I should see at least {int} module items', async function (this: E2EWorld, expected: number) {
+  assert(this.page, 'Playwright page is not initialized');
+  const list = this.page.locator('.composer-panel .panel-section').nth(1).locator('.project-list .project-item');
+  await list.first().waitFor({ state: 'visible' });
+  const count = await list.count();
+  assert.ok(count >= expected, `Expected at least ${expected} module items, found ${count}`);
 });
