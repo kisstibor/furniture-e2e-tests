@@ -1,0 +1,50 @@
+schema_version: 1
+kind: furniture_project_design
+meta:
+  name: Regression Fixture - BOM Price Lower Rule
+  units: mm
+project:
+  modules:
+    - label: BOM Price Lower Rule Module
+      placement:
+        x: 0
+        y: 0
+        z: 0
+        rotation_y_deg: 0
+      size:
+        width: 2500
+        height: 2000
+        depth: 560
+      source_snapshot:
+        module_snapshot:
+          bodies:
+            - id: 1
+              x: 0
+              y: 0
+              width: 2500
+              height: 2000
+              deepth: 560
+              thickness: 18
+              type: 0
+              split: null
+              interiorLayout: null
+              includeBack: true
+              details:
+                manufacturerId: dev-egger
+                manufacturerName: Egger Demo
+                bodySheetTypeId: dev-sheet-egger-oak-18
+                bodySheetTypeName: H1318 ST10 Natural Halifax Oak 18mm
+                backPanelSheetTypeId: dev-sheet-egger-oak-18
+                backPanelSheetTypeName: H1318 ST10 Natural Halifax Oak 18mm
+                absBandId: dev-abs-white-1mm
+                absBandName: White ABS 1mm
+              design:
+                worktop:
+                  enabled: false
+                  worktopId: null
+                  thicknessMm: 38
+                  frontOverhangMm: 20
+                  leftOverhangMm: 0
+                  rightOverhangMm: 0
+                  backOverhangMm: 0
+                  cutouts: []

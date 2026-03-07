@@ -100,3 +100,12 @@ npm run test:yaml
 - `@e2e`: end-to-end workflows (project creation, decomposition, cutting plan)
 - `@db`: persistence verification scenarios
 - `@manual`: examples/templates excluded from default runs
+
+## CI Suite Split
+
+Pipeline jobs run tag-based subsets only:
+
+- `npm run test:ci:smoke` -> `@smoke and not @manual`
+- `npm run test:ci:yaml` -> `@yaml and not @manual`
+- `npm run test:ci:e2e` -> `@e2e and not @smoke and not @yaml and not @db and not @manual`
+- `npm run test:ci:db` -> `@db and not @manual`

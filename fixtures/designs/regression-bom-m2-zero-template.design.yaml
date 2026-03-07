@@ -1,0 +1,50 @@
+schema_version: 1
+kind: furniture_project_design
+meta:
+  name: Regression Fixture - BOM m2 Zero Sheet Path
+  units: mm
+project:
+  modules:
+    - label: BOM m2 Zero Sheet Path Module
+      placement:
+        x: 0
+        y: 0
+        z: 0
+        rotation_y_deg: 0
+      size:
+        width: 900
+        height: 900
+        depth: 560
+      source_snapshot:
+        module_snapshot:
+          bodies:
+            - id: 1
+              x: 0
+              y: 0
+              width: 900
+              height: 900
+              deepth: 560
+              thickness: 18
+              type: 0
+              split: null
+              interiorLayout: null
+              includeBack: true
+              details:
+                manufacturerId: dev-egger
+                manufacturerName: Egger Demo
+                bodySheetTypeId: __ZERO_M2_SHEET_ID__
+                bodySheetTypeName: E2E m2 zero sheet
+                backPanelSheetTypeId: __ZERO_M2_SHEET_ID__
+                backPanelSheetTypeName: E2E m2 zero sheet
+                absBandId: dev-abs-white-1mm
+                absBandName: White ABS 1mm
+              design:
+                worktop:
+                  enabled: false
+                  worktopId: null
+                  thicknessMm: 38
+                  frontOverhangMm: 20
+                  leftOverhangMm: 0
+                  rightOverhangMm: 0
+                  backOverhangMm: 0
+                  cutouts: []

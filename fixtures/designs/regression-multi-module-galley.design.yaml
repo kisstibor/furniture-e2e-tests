@@ -1,0 +1,122 @@
+schema_version: 1
+kind: furniture_project_design
+meta:
+  name: Regression Fixture - Multi Module Galley
+  units: mm
+project:
+  modules:
+    - label: Sink Base
+      placement:
+        x: 0
+        y: 0
+        z: 0
+        rotation_y_deg: 0
+      size:
+        width: 900
+        height: 820
+        depth: 560
+      source_snapshot:
+        module_snapshot:
+          bodies:
+            - x: 0
+              y: 0
+              width: 900
+              height: 820
+              deepth: 560
+              thickness: 18
+              split: null
+              interiorLayout: null
+              details: null
+              design: null
+    - label: Dishwasher Gap
+      placement:
+        x: 930
+        y: 0
+        z: 0
+        rotation_y_deg: 0
+      size:
+        width: 600
+        height: 820
+        depth: 560
+      source_snapshot:
+        module_snapshot:
+          bodies:
+            - x: 0
+              y: 0
+              width: 600
+              height: 820
+              deepth: 560
+              thickness: 18
+              split: null
+              interiorLayout: null
+              details: null
+              design: null
+    - label: Drawer Stack
+      placement:
+        x: 1560
+        y: 0
+        z: 0
+        rotation_y_deg: 0
+      size:
+        width: 900
+        height: 820
+        depth: 560
+      source_snapshot:
+        module_snapshot:
+          bodies:
+            - x: 0
+              y: 0
+              width: 900
+              height: 820
+              deepth: 560
+              thickness: 18
+              split: null
+              interiorLayout: null
+              details: null
+              design: null
+    - label: Wall Cabinet 1
+      placement:
+        x: 0
+        y: -880
+        z: 0
+        rotation_y_deg: 0
+      size:
+        width: 900
+        height: 720
+        depth: 330
+      source_snapshot:
+        module_snapshot:
+          bodies:
+            - x: 0
+              y: 0
+              width: 900
+              height: 720
+              deepth: 330
+              thickness: 18
+              split: null
+              interiorLayout: null
+              details: null
+              design: null
+    - label: Wall Cabinet 2
+      placement:
+        x: 930
+        y: -880
+        z: 0
+        rotation_y_deg: 0
+      size:
+        width: 900
+        height: 720
+        depth: 330
+      source_snapshot:
+        module_snapshot:
+          bodies:
+            - x: 0
+              y: 0
+              width: 900
+              height: 720
+              deepth: 330
+              thickness: 18
+              split: null
+              interiorLayout: null
+              details: null
+              design: null

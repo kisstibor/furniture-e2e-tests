@@ -1,4 +1,5 @@
-﻿import assert from 'assert';
+import assert from 'assert';
+import fs from 'fs';
 import { Given, Then, When } from '@cucumber/cucumber';
 import { resolveFixturePath } from '../support/fixtures';
 import { runtimeHarness } from '../support/runtime';
@@ -57,6 +58,31 @@ When('I import the furniture design YAML fixture {string}', async function (this
   await yamlInput.setInputFiles(absoluteFixturePath);
 });
 
+When(
+  'I import the furniture design YAML template {string} replacing token {string} with remembered value {string}',
+  async function (this: E2EWorld, fixturePath: string, token: string, memoryKey: string) {
+    assert(this.page, 'Playwright page is not initialized');
+    const absoluteFixturePath = resolveFixturePath(fixturePath);
+    const remembered = this.getMemory<string>(memoryKey);
+    assert(remembered, `No remembered value found for key "${memoryKey}"`);
+
+    const template = fs.readFileSync(absoluteFixturePath, 'utf8');
+    const patched = template.split(token).join(String(remembered));
+    assert.notStrictEqual(
+      patched,
+      template,
+      `Token "${token}" was not found in fixture template "${fixturePath}"`
+    );
+
+    const yamlInput = this.page.locator('input[type="file"][accept*=".yaml"]').first();
+    await yamlInput.setInputFiles({
+      name: `generated-${Date.now()}.design.yaml`,
+      mimeType: 'application/x-yaml',
+      buffer: Buffer.from(patched, 'utf8'),
+    });
+  }
+);
+
 Then('I should see a project item named {string}', async function (this: E2EWorld, name: string) {
   assert(this.page, 'Playwright page is not initialized');
   const item = this.page.locator('.composer-panel .panel-section').nth(0).locator('.project-list .project-item', { hasText: name }).first();
@@ -89,3 +115,54 @@ Then('I should see at least {int} module items', async function (this: E2EWorld,
   const count = await list.count();
   assert.ok(count >= expected, `Expected at least ${expected} module items, found ${count}`);
 });
+
+Then(
+  'I should see a BOM row for material {string} with pricing mode {string}',
+  async function (this: E2EWorld, material: string, mode: string) {
+    assert(this.page, 'Playwright page is not initialized');
+    const modeText =
+      mode === 'm2'
+        ? 'from m2'
+        : mode === 'sheet'
+          ? 'from sheet'
+          : mode === 'fallback'
+            ? 'fallback'
+            : mode;
+    const row = this.page.locator('table.bom-table tr.mat-mdc-row', { hasText: material }).first();
+    await row.waitFor({ state: 'visible' });
+    await row.getByText(modeText, { exact: false }).first().waitFor({ state: 'visible' });
+  }
+);
+
+When(
+  'I select mat option {string} for mat-select named {string}',
+  async function (this: E2EWorld, optionText: string, selectName: string) {
+    assert(this.page, 'Playwright page is not initialized');
+    const select = this.page.locator(`mat-select[name="${selectName}"]`).first();
+    await select.waitFor({ state: 'visible' });
+    await select.click();
+    const option = this.page.locator('mat-option').filter({ hasText: optionText }).first();
+    await option.waitFor({ state: 'visible' });
+    await option.click();
+  }
+);
+
+Then('I remember the computed drawer box as {string}', async function (this: E2EWorld, key: string) {
+  assert(this.page, 'Playwright page is not initialized');
+  const boxLine = this.page.getByText(/^Computed box:\s*\d+\s*x\s*\d+\s*x\s*\d+\s*mm$/).first();
+  await boxLine.waitFor({ state: 'visible' });
+  const text = (await boxLine.textContent())?.trim() ?? '';
+  assert.ok(text.length > 0, 'Computed drawer box text is empty');
+  this.setMemory(key, text);
+});
+
+Then(
+  'remembered value {string} should differ from remembered value {string}',
+  function (this: E2EWorld, leftKey: string, rightKey: string) {
+    const left = this.getMemory<string>(leftKey);
+    const right = this.getMemory<string>(rightKey);
+    assert.notStrictEqual(left, undefined, `No remembered value for key "${leftKey}"`);
+    assert.notStrictEqual(right, undefined, `No remembered value for key "${rightKey}"`);
+    assert.notStrictEqual(left, right, `Expected remembered values to differ (${leftKey} vs ${rightKey})`);
+  }
+);

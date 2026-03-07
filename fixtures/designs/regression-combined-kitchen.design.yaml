@@ -1,0 +1,156 @@
+schema_version: 1
+kind: furniture_project_design
+meta:
+  name: Regression Fixture - Combined Kitchen
+  units: mm
+project:
+  modules:
+    - label: Combined Base Drawer
+      placement:
+        x: 0
+        y: 0
+        z: 0
+        rotation_y_deg: 0
+      size:
+        width: 1000
+        height: 820
+        depth: 560
+      source_snapshot:
+        module_snapshot:
+          bodies:
+            - id: 1
+              x: 0
+              y: 0
+              width: 1000
+              height: 820
+              deepth: 560
+              thickness: 18
+              type: 0
+              split:
+                relativePositionY: 400
+                topElement:
+                  elementId: 11
+                  posX: 0
+                  posY: 0
+                  width: 1000
+                  height: 400
+                  type: 1
+                  split: null
+                  details:
+                    drawer:
+                      slideId: slide-450
+                      slideType: side_mount_230m_430e
+                      slideLengthMm: 450
+                      drawerSystem: wood_box
+                      boxHeight: 130
+                bottomElement:
+                  elementId: 12
+                  posX: 0
+                  posY: 400
+                  width: 1000
+                  height: 420
+                  type: 2
+                  split: null
+                  details:
+                    door:
+                      hinge: right
+              interiorLayout: null
+              details:
+                manufacturerId: dev-egger
+                manufacturerName: Egger Demo
+                bodySheetTypeId: dev-sheet-egger-oak-18
+                bodySheetTypeName: H1318 ST10 Natural Halifax Oak 18mm
+                backPanelSheetTypeId: dev-sheet-egger-hdf-3
+                backPanelSheetTypeName: HDF/Masonite Back Panel 3mm
+                absBandId: dev-abs-white-1mm
+                absBandName: White ABS 1mm
+              design:
+                worktop:
+                  enabled: true
+                  worktopId: dev-worktop-oak-38
+                  thicknessMm: 38
+                  frontOverhangMm: 20
+                  leftOverhangMm: 10
+                  rightOverhangMm: 10
+                  backOverhangMm: 0
+                  cutouts: []
+                frontStyle:
+                  mode: in-frame
+                  frameRevealMm: 2
+                  overlayGapMm: 2
+                base:
+                  mode: legs
+                  legHeightMm: 100
+                  pedestalHeightMm: 100
+                  toeKickRecessMm: 50
+    - label: Combined Tall Pantry
+      placement:
+        x: 1060
+        y: -1380
+        z: 0
+        rotation_y_deg: 0
+      size:
+        width: 800
+        height: 2200
+        depth: 560
+      source_snapshot:
+        module_snapshot:
+          bodies:
+            - id: 2
+              x: 0
+              y: 0
+              width: 450
+              height: 2200
+              deepth: 560
+              thickness: 18
+              type: 0
+              split: null
+              interiorLayout: null
+              details:
+                manufacturerId: dev-krono
+                manufacturerName: Krono Demo
+                bodySheetTypeId: dev-sheet-krono-grey-18
+                bodySheetTypeName: Grey 18mm
+                backPanelSheetTypeId: dev-sheet-egger-hdf-6
+                backPanelSheetTypeName: HDF/Masonite Back Panel 6mm
+                absBandId: dev-abs-anthracite-1mm
+                absBandName: Anthracite ABS 1mm
+              design:
+                worktop:
+                  enabled: false
+                  worktopId: null
+                  thicknessMm: 38
+                  frontOverhangMm: 20
+                  leftOverhangMm: 0
+                  rightOverhangMm: 0
+                  backOverhangMm: 0
+                  cutouts: []
+            - id: 3
+              x: 450
+              y: 0
+              width: 350
+              height: 2200
+              deepth: 560
+              thickness: 18
+              type: 0
+              split: null
+              interiorLayout: null
+              details:
+                manufacturerId: dev-egger
+                manufacturerName: Egger Demo
+                bodySheetTypeId: dev-sheet-egger-w1000-18
+                bodySheetTypeName: W1000 ST9 White 18mm
+                backPanelSheetTypeId: dev-sheet-egger-hdf-3
+                backPanelSheetTypeName: HDF/Masonite Back Panel 3mm
+                absBandId: dev-abs-white-2mm
+                absBandName: White ABS 2mm
+              design:
+                worktop:
+                  enabled: false
+                  worktopId: null
+                  thicknessMm: 38
+                  frontOverhangMm: 20
+                  leftOverhangMm: 0
+                  rightOverhangMm: 0
+                  backOverhangMm: 0
+                  cutouts: []

@@ -1,0 +1,109 @@
+schema_version: 1
+kind: furniture_project_design
+meta:
+  name: Regression Fixture - Worktop L Run
+  units: mm
+project:
+  modules:
+    - label: Base Left 1200
+      placement:
+        x: 0
+        y: 0
+        z: 0
+        rotation_y_deg: 0
+      size:
+        width: 1200
+        height: 820
+        depth: 560
+      source_snapshot:
+        module_snapshot:
+          bodies:
+            - id: 1
+              x: 0
+              y: 0
+              width: 1200
+              height: 820
+              deepth: 560
+              thickness: 18
+              type: 0
+              split: null
+              interiorLayout: null
+              details:
+                manufacturerId: dev-egger
+                manufacturerName: Egger Demo
+                bodySheetTypeId: dev-sheet-egger-oak-18
+                bodySheetTypeName: H1318 ST10 Natural Halifax Oak 18mm
+                backPanelSheetTypeId: dev-sheet-egger-hdf-3
+                backPanelSheetTypeName: HDF/Masonite Back Panel 3mm
+                absBandId: dev-abs-white-1mm
+                absBandName: White ABS 1mm
+              design:
+                worktop:
+                  enabled: true
+                  worktopId: dev-worktop-oak-38
+                  thicknessMm: 38
+                  frontOverhangMm: 20
+                  leftOverhangMm: 10
+                  rightOverhangMm: 0
+                  backOverhangMm: 0
+                  cutouts: []
+                frontStyle:
+                  mode: in-frame
+                  frameRevealMm: 2
+                  overlayGapMm: 2
+                base:
+                  mode: pedestal
+                  legHeightMm: 100
+                  pedestalHeightMm: 100
+                  toeKickRecessMm: 50
+    - label: Base Right 900
+      placement:
+        x: 1200
+        y: 0
+        z: 0
+        rotation_y_deg: 0
+      size:
+        width: 900
+        height: 820
+        depth: 560
+      source_snapshot:
+        module_snapshot:
+          bodies:
+            - id: 2
+              x: 0
+              y: 0
+              width: 900
+              height: 820
+              deepth: 560
+              thickness: 18
+              type: 0
+              split: null
+              interiorLayout: null
+              details:
+                manufacturerId: dev-egger
+                manufacturerName: Egger Demo
+                bodySheetTypeId: dev-sheet-egger-oak-18
+                bodySheetTypeName: H1318 ST10 Natural Halifax Oak 18mm
+                backPanelSheetTypeId: dev-sheet-egger-hdf-3
+                backPanelSheetTypeName: HDF/Masonite Back Panel 3mm
+                absBandId: dev-abs-white-1mm
+                absBandName: White ABS 1mm
+              design:
+                worktop:
+                  enabled: true
+                  worktopId: dev-worktop-oak-38
+                  thicknessMm: 38
+                  frontOverhangMm: 20
+                  leftOverhangMm: 0
+                  rightOverhangMm: 10
+                  backOverhangMm: 0
+                  cutouts: []
+                frontStyle:
+                  mode: in-frame
+                  frameRevealMm: 2
+                  overlayGapMm: 2
+                base:
+                  mode: pedestal
+                  legHeightMm: 100
+                  pedestalHeightMm: 100
+                  toeKickRecessMm: 50

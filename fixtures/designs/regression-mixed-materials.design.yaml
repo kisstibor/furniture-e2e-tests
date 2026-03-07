@@ -1,0 +1,78 @@
+schema_version: 1
+kind: furniture_project_design
+meta:
+  name: Regression Fixture - Mixed Materials
+  units: mm
+project:
+  modules:
+    - label: Mixed Material Tall Unit
+      placement:
+        x: 0
+        y: 0
+        z: 0
+        rotation_y_deg: 0
+      size:
+        width: 1000
+        height: 2200
+        depth: 560
+      source_snapshot:
+        module_snapshot:
+          bodies:
+            - id: 1
+              x: 0
+              y: 0
+              width: 600
+              height: 2200
+              deepth: 560
+              thickness: 18
+              type: 0
+              split: null
+              interiorLayout: null
+              details:
+                manufacturerId: dev-egger
+                manufacturerName: Egger Demo
+                bodySheetTypeId: dev-sheet-egger-w1000-18
+                bodySheetTypeName: W1000 ST9 White 18mm
+                backPanelSheetTypeId: dev-sheet-egger-hdf-3
+                backPanelSheetTypeName: HDF/Masonite Back Panel 3mm
+                absBandId: dev-abs-white-2mm
+                absBandName: White ABS 2mm
+              design:
+                worktop:
+                  enabled: false
+                  worktopId: null
+                  thicknessMm: 38
+                  frontOverhangMm: 20
+                  leftOverhangMm: 0
+                  rightOverhangMm: 0
+                  backOverhangMm: 0
+                  cutouts: []
+            - id: 2
+              x: 600
+              y: 0
+              width: 400
+              height: 2200
+              deepth: 560
+              thickness: 18
+              type: 0
+              split: null
+              interiorLayout: null
+              details:
+                manufacturerId: dev-krono
+                manufacturerName: Krono Demo
+                bodySheetTypeId: dev-sheet-krono-grey-18
+                bodySheetTypeName: Grey 18mm
+                backPanelSheetTypeId: dev-sheet-egger-hdf-6
+                backPanelSheetTypeName: HDF/Masonite Back Panel 6mm
+                absBandId: dev-abs-anthracite-1mm
+                absBandName: Anthracite ABS 1mm
+              design:
+                worktop:
+                  enabled: false
+                  worktopId: null
+                  thicknessMm: 38
+                  frontOverhangMm: 20
+                  leftOverhangMm: 0
+                  rightOverhangMm: 0
+                  backOverhangMm: 0
+                  cutouts: []
