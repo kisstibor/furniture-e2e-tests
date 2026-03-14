@@ -14,6 +14,23 @@ When('I send a POST request to the backend path {string} with JSON:', async func
   this.lastApiResponse = await runtimeHarness.getApiClient().post(path, body);
 });
 
+When('the auth user exists in the backend with JSON:', async function (this: E2EWorld, docString: string) {
+  const body = parseStructuredDoc(docString);
+  const response = await runtimeHarness.getApiClient().post('/auth/register', body);
+  const duplicateAccountMessage = response.json && typeof response.json === 'object'
+    ? (response.json as Record<string, unknown>).message
+    : null;
+
+  const isExpectedDuplicate =
+    response.status === 400 && duplicateAccountMessage === 'An account already exists for this email.';
+
+  assert.ok(
+    response.status === 200 || isExpectedDuplicate,
+    `Expected auth bootstrap to succeed or report duplicate account, got ${response.status}: ${response.text}`
+  );
+  this.lastApiResponse = response;
+});
+
 Then('the API response status should be {int}', function (this: E2EWorld, status: number) {
   assert(this.lastApiResponse, 'No API response captured');
   assert.strictEqual(this.lastApiResponse.status, status, this.lastApiResponse.text);

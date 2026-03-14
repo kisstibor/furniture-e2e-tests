@@ -45,6 +45,16 @@ When('I fill the selector {string} with {string}', async function (this: E2EWorl
   await this.page.locator(selector).first().fill(value);
 });
 
+When(
+  'I log in through the UI with email {string} and password {string}',
+  async function (this: E2EWorld, email: string, password: string) {
+    assert(this.page, 'Playwright page is not initialized');
+    await this.page.locator('input[name="email"]').first().fill(email);
+    await this.page.locator('input[name="password"]').first().fill(password);
+    await this.page.locator('button[type="submit"]').first().click();
+  }
+);
+
 When('I upload the fixture file {string} into the selector {string}', async function (this: E2EWorld, fixturePath: string, selector: string) {
   assert(this.page, 'Playwright page is not initialized');
   const absoluteFixturePath = resolveFixturePath(fixturePath);
