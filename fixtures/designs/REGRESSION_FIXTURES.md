@@ -12,3 +12,4 @@ These fixtures are versioned under `fixtures/designs/` and cover the core projec
    - Multi-module composition fixture (5 modules).
 5. `regression-combined-kitchen.design.yaml`
    - Combined scenario: multi-module + drawer + worktop + mixed-material content.
+   - Used by `PROD-204` BOM regression coverage to verify mixed materials, drawer hardware, worktop parts, and joinery appear together in the BOM flow.
