@@ -1,8 +1,12 @@
 @decomposition @e2e @ui @api
 Feature: Decomposition front and backend coverage
 
+  Background:
+    Given the frontend is available
+    And the backend API is available
+
   Scenario: Decomposition page loads and renders core UI regions
-    When I open the frontend path "http://localhost:8088/decomposition"
+    When I open the frontend path "/decomposition"
     Then the frontend URL should contain "/decomposition"
     And I should see the selector "app-decomposition-review"
     And I should see text "Decomposition Review"
@@ -10,7 +14,7 @@ Feature: Decomposition front and backend coverage
     And I should see the selector "app-decomposition-review .parts-panel"
 
   Scenario: Backend decomposition endpoint returns decomposed parts for a valid body
-    When I send a POST request to the backend path "http://localhost:8088/api/cutting-plans/decompose-v2" with JSON:
+    When I send a POST request to the backend path "/cutting-plans/decompose-v2" with JSON:
       """
       bodies:
         - id: 1
@@ -45,7 +49,7 @@ Feature: Decomposition front and backend coverage
       """
 
   Scenario: Backend decomposition endpoint validates missing bodies
-    When I send a POST request to the backend path "http://localhost:8088/api/cutting-plans/decompose-v2" with JSON:
+    When I send a POST request to the backend path "/cutting-plans/decompose-v2" with JSON:
       """
       bodies: []
       stock:
